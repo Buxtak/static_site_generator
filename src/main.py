@@ -1,13 +1,13 @@
 import os
 import shutil
 
-from gen_content import generate_page
+from gen_content import generate_pages_recursive
 
 
 def main():
     cleaner("public")
     copier("static", "public")
-    generate_page("content/index.md", "template.html", "public/index.html")
+    generate_pages_recursive("content", "template.html", "public")
 
 
 def cleaner(path_public):
