@@ -1,12 +1,13 @@
 import os
 import shutil
 
-from textnode import TextNode, TextType
+from gen_content import generate_page
 
 
 def main():
     cleaner("public")
     copier("static", "public")
+    generate_page("content/index.md", "template.html", "public/index.html")
 
 
 def cleaner(path_public):

@@ -30,6 +30,7 @@ def block_to_block_type(block_node):
     index = 0
     if block_node.startswith(("# ", "## ", "### ", "#### ", "##### ", "###### ")):
         return BlockType.HEADING
+
     if lines[0].startswith("```") and lines[-1].startswith("```") and len(lines) > 1:
         return BlockType.CODE
 
