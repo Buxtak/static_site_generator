@@ -1,13 +1,18 @@
 import os
 import shutil
+import sys
 
 from gen_content import generate_pages_recursive
 
 
 def main():
-    cleaner("public")
-    copier("static", "public")
-    generate_pages_recursive("content", "template.html", "public")
+    basepath = "/"
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+
+    cleaner("docs")
+    copier("static", "docs")
+    generate_pages_recursive("content", "template.html", "docs", basepath)
 
 
 def cleaner(path_public):
